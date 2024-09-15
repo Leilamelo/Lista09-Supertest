@@ -74,21 +74,21 @@ describe('PetStore Swagger - Entidade User', () => {
         it(`POST User Data Driven ForEach - ${username}`, () => {
 
             // Atributos, Campos, Características, Configurações
-            const user = require('../../vendors/json/user.json')
+            const userJson = require('../../vendors/json/user.json')
 
-            user.id = id
-            user.username = username
-            user.firstName = firstName
-            user.lastName = lastName
-            user.email = email
-            user.password = password
-            user.phone = phone
-            user.userStatus = userStatus
+            userJson.id = id
+            userJson.username = username
+            userJson.firstName = firstName
+            userJson.lastName = lastName
+            userJson.email = email
+            userJson.password = password
+            userJson.phone = phone
+            userJson.userStatus = userStatus
 
             // Função de teste
             return request
                 .post('/user')
-                .send(user)
+                .send(userJson)
                 .then((res) => {
                     expect(res.statusCode).toBe(200)
                     expect(res.body.code).toEqual(200)
@@ -96,6 +96,8 @@ describe('PetStore Swagger - Entidade User', () => {
                     expect(res.body.message).toBe(id.toString())
                 })
         })// termina o Post
+
+        
 
         it(`DELETE User Data Driven ForEach -- ${username}`, () => {
             return request
