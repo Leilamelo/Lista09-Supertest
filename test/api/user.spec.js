@@ -97,8 +97,6 @@ describe('PetStore Swagger - Entidade User', () => {
                 })
         })// termina o Post
 
-        
-
         it(`DELETE User Data Driven ForEach -- ${username}`, () => {
             return request
                 .delete(`/user/${username}`)
